@@ -42,8 +42,8 @@ int main() {
     char scf[max];
     FILE *sc, *tg;
 
-    char nfile[max] = "/home/rizk/Desktop/log.log";
-    char ofile[max] = "/home/rizk/Desktop/sampah.txt";
+    char nfile[max] = "/home/rizk/Desktop/sisop_latihan1/module2/log.log";
+    char ofile[max] = "/home/rizk/Desktop/sisop_latihan1/module2/sampah.txt";
 
     sc = fopen(ofile, "r");
     tg = fopen(nfile, "w");

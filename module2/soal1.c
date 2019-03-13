@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <wait.h>
 #include <stdio.h>
 
 void abjad_shift_1() {
@@ -19,6 +20,7 @@ void abjad_shift_2() {
 
 int main() {
   pid_t child_id;
+  int status;
 
   child_id = fork();
   
@@ -27,8 +29,9 @@ int main() {
   }
 
   if (child_id == 0) {
-    abjad_shift_2();
-  } else {
     abjad_shift_1();
+  } else {
+    while((wait(&status)) > 0);
+    abjad_shift_2();
   }
 }
