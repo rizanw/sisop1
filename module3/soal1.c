@@ -5,7 +5,7 @@
 #include <pthread.h>
 
 pthread_t tid1, tid2;
-int status;
+int status = 0;
 
 struct args{
 	char *file1;
@@ -42,8 +42,8 @@ int main(){
 	pthread_join(tid1, NULL);
 	pthread_join(tid2, NULL);
 
-	// printf("pthread_create() for th1 returns: %d\n", th1);
-	// printf("pthread_create() for th2 returns: %d\n", th2);
+	printf("pthread_create() for th1 returns: %d\n", th1);
+	printf("pthread_create() for th2 returns: %d\n", th2);
 
 	exit(EXIT_SUCCESS);
 	return 0;
@@ -57,7 +57,7 @@ void *salin1(void *ptr){
 }
 
 void *salin2(void *ptr){
-	while(status != 1) return 0;
+	while(status != 1);
 	salin(((struct args*)ptr)->file2, ((struct args*)ptr)->file3);
 	return 0;
 }
